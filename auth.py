@@ -5,12 +5,15 @@ from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
 
-# define and assign API_AUDIENCE and AUTH0_DOMAIN and ALGORITHMS exported  from setup.sh
+# define and assign API_AUDIENCE and AUTH0_DOMAIN and ALGORITHMS exported
+# from setup.sh
 AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
 ALGORITHMS = os.environ['ALGORITHMS']
 API_AUDIENCE = os.environ['API_AUDIENCE']
 
 # Defining AuthError Exception
+
+
 class AuthError(Exception):
     def __init__(self, error, status_code):
         self.error = error
@@ -59,7 +62,7 @@ def get_token_auth_header():
     return token
 
 
-#Implementing function for checking and getting permission if exists
+# Implementing function for checking and getting permission if exists
 def check_permissions(permission, payload):
     # check if any permissions exist in the payload
     if 'permissions' not in payload:
@@ -78,7 +81,7 @@ def check_permissions(permission, payload):
         }, 401)
 
 
-#verifying the Decode JWT Token from Auth0
+# verifying the Decode JWT Token from Auth0
 def verify_decode_jwt(token):
     # get jsonurl for Auth0 using Auth0 domain
     jsonurl = urlopen(f'https://{AUTH0_DOMAIN}/.well-known/jwks.json')
@@ -139,13 +142,11 @@ def verify_decode_jwt(token):
                 'code': 'invalid_header',
                 'description': 'Unable to parse authentication token.'
             }, 401)
-    # raise auth error if rsa_key does not exist 
+    # raise auth error if rsa_key does not exist
     raise AuthError({
         'code': 'invalid_header',
                 'description': 'Unable to find the appropriate key.'
     }, 401)
-
-
 
 
 # defining and implementing the require auth decorator
