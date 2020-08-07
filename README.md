@@ -1,8 +1,9 @@
 # Casting Agency API
 
 ## Getting Started
-This is a Casting Agency API which returns a directory of Movies and Actors associated with this Casting Agency. This API allows the Agency to manage Actors and Movies. The API makes use of Authentication which gives certain roles access to certain functionalities. This project is the final project of my Full stack Web Developer Nano Degree Program. I enjoyed building it and I hope you enjoy using it. This is a Flask Application which uses and utilizes a Postgres Databases
-**LIVE URL ** : https://still-citadel-94091.herokuapp.com/
+This is a Casting Agency API which returns a directory of Movies and Actors associated with this Casting Agency. This API allows the Agency to manage Actors and Movies. The API makes use of Authentication which gives certain roles access to certain functionalities. This project is the final project of my Full stack Web Developer Nano Degree Program. I enjoyed building it and I hope you enjoy using it.
+
+## LIVE URL : https://still-citadel-94091.herokuapp.com/
 
 ## Tech Stack
 This is a Python Flask Application which uses and utilizes a Postgres Database
@@ -47,7 +48,7 @@ On Windows:
 
 #### PIP Dependencies
 
-Once you have your virtual environment setup and running, install dependencies by naviging to the `/starter` directory and running:
+Once you have your virtual environment setup and running, install dependencies by naviging to the **root directory** and running:
 
 ```bash
 pip install -r requirements.txt
@@ -66,6 +67,7 @@ This will install all of the required packages within the `requirements.txt` fil
 
 
 ### Setting Up Project Locally
+
 After succesfully installing all requirements for the project. You can setup the project locally by following the steps below:
 
 1. Create Databases. You need to create two databases. You can create databases by either using a Postgrest Client (PG Admin) or using the createdb engine. The first database is the actual database for the appliation, while the second is the test database for running tests
@@ -75,13 +77,13 @@ createdb CastingAgencyTest
 ```
 
 
-2. Configure the setup.sh with appropiate variables. Make sure to set the SQLALCHEMY_DATABASE_URI and the SQLALCHEMY_DATABASE_URI_TEST correctly by inputing the correct database username and password. 
+2. Configure the setup.sh with appropiate variables. *Make sure to set the SQLALCHEMY_DATABASE_URI and the SQLALCHEMY_DATABASE_URI_TEST correctly by inputing the correct database username and password*. 
 ```
 export SQLALCHEMY_DATABASE_URI='postgresql://<username>:<password>@localhost:5432/castingAgency'
 export SQLALCHEMY_DATABASE_URI_TEST='postgresql://<username>:<password>@localhost:5432/castingAgencyTest'
 ```
 
-3. Expose Credentials to Enviroment after succesful configuration of setup.sh file. The credentials in the setup.sh are used by the app and are very neccesary to running the app. Run the command below. Running this command in a virtual enviroment is preferable
+3. Expose Credentials to Enviroment after succesful configuration of setup.sh file. *The credentials in the setup.sh are used by the app and are very neccesary to running the app. Run the command below. Running this command in a virtual enviroment is preferable*
 ```
 source setup.sh
 ```
